@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-dashboard-go-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: k8s-dashboard-go-backend
+  template:
+    metadata:
+      labels:
+        app: k8s-dashboard-go-backend
+    spec:
+      containers:
+      - name: k8s-dashboard-go-backend
+        image: mamaresh/k8s-dashboard-go-backend
+        ports:
+        - containerPort: 8080
